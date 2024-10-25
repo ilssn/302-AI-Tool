@@ -1,8 +1,8 @@
-# 302-Dev-Kit
+# 302-AI-Tool
 
 ## 项目简介
 
-`302-Dev-Kit` 是一个基于 Next.js 的 Web 项目，旨在基于302.AI的API基础上，提供快速、高效的开发体验。本项目包含基础的组件、钩子以及工具函数，助力开发者快速搭建生产级AI工具应用。
+`302-AI-Tool` 是一个基于 Next.js 的 Web 项目，使用302.AI的 `302-Dev-Kit` 模板搭建的生产级AI工具应用集合。
 
 ## 功能特性
 
@@ -12,65 +12,18 @@
 - **丰富的工具函数**: 包含 API 请求、鉴权、事件派发等工具函数。
 - **代码规范**: 使用 ESLint 和 Prettier 进行代码检查和格式化。
 
-## 目录结构
-
-```plaintext
-root
-├── src
-│   ├── app
-│   ├── layout                     // 根部布局
-│   │── auth                       // 鉴权页
-│   │   ├── index                  // 导出模块
-│   │   ├── _components            // 私有组件
-│   ├── (land)                     // 落地页组
-│   │   │── page                   // 落地主页
-│   │   │── _components            // 私有组件
-│   ├── components                 // 公共组件
-│   │   ├── common                 // 通用组件
-│   │   ├── forms                  // 表单组件
-│   │   ├── global                 // 全局组件
-│   │   ├── ui                     // 基础组件
-│   ├── constants                  // 常量
-│   │   ├── forms                  // 表单相关常量
-│   │   ├── menus                  // 菜单选项
-│   ├── hooks                      // 钩子
-│   │   ├── auth                   // 认证模块钩子
-│   │   ├── global                 // 全局钩子
-│   ├── icons                      // 图标
-│   │   ├── auth                   // 认证模块的图标
-│   │   ├── global                 // 全局模块图标
-│   ├── lib                        // 工具函数
-│   │   ├── api                    // 请求相关工具函数
-│   │   ├── mitt                   // 事件派发工具
-│   │   ├── utils                  // 其他工具集
-│   ├── services                   // 请求函数
-│   │   ├── auth                   // 鉴权请求
-│   ├── locales                    // 国际化
-│   │   ├── zh                     // 中文
-│   │   ├── en                     // 英文
-│   │   ├── ja                     // 日文
-│   ├── stores                     // 状态管理
-│   │   ├── slices                 // 划分模块状态
-│   │   ├── index                  // 导出模块
-│   ├── styles                     // 样式
-│   │   ├── global                 // 全局样式
-│   │   ├── info                   // 信息样式
-│   ├── env.ts                     // 环境变量控制
-└── package.json
-```
-
 ## 安装
 
 1. 克隆仓库：
 
    ```bash
-   git clone https://github.com/302ai/302-Dev-Kit
+   git clone https://github.com/302ai/302-AI-Tool
    ```
 
 2. 安装依赖：
 
    ```bash
-   cd 302-Dev-Kit
+   cd 302-AI-Tool
    npm install
    ```
 
@@ -83,62 +36,6 @@ root
 - `npm run clean`：清理生成的构建文件。
 - `npm run check`：检查代码格式。
 - `npm run format`：格式化代码。
-
-## 依赖
-
-### 生产依赖
-
-- `@hookform/error-message`
-- `@hookform/resolvers`
-- `@radix-ui/react-alert-dialog`
-- `@radix-ui/react-checkbox`
-- `@radix-ui/react-dialog`
-- `@radix-ui/react-dropdown-menu`
-- `@radix-ui/react-icons`
-- `@radix-ui/react-label`
-- `@radix-ui/react-slot`
-- `@radix-ui/react-toast`
-- `@t3-oss/env-nextjs`
-- `@tanstack/react-query`
-- `ahooks`
-- `class-variance-authority`
-- `clsx`
-- `geist`
-- `jiti`
-- `ky`
-- `ll`
-- `lucide-react`
-- `mitt`
-- `next`
-- `next-themes`
-- `react`
-- `react-dom`
-- `react-hook-form`
-- `tailwind-merge`
-- `tailwindcss-animate`
-- `zod`
-- `zustand`
-
-### 开发依赖
-
-- `@trivago/prettier-plugin-sort-imports`
-- `@types/eslint`
-- `@types/node`
-- `@types/react`
-- `@types/react-dom`
-- `@typescript-eslint/eslint-plugin`
-- `@typescript-eslint/parser`
-- `eslint`
-- `eslint-config-next`
-- `eslint-config-prettier`
-- `eslint-plugin-check-file`
-- `eslint-plugin-n`
-- `eslint-plugin-tailwindcss`
-- `postcss`
-- `prettier`
-- `prettier-plugin-tailwindcss`
-- `tailwindcss`
-- `typescript`
 
 ## 开发指南
 
