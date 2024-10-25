@@ -17,4 +17,4 @@ export const defaultLocale: Lang = env.NEXT_PUBLIC_DEFAULT_LOCALE;
 
 export const locales = languages.map((it) => it.value);
 
-export const namespaces = ["global", "auth", "land"];
+export const namespaces = ["global", "auth", "land", "v-gen"];
