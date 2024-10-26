@@ -6,9 +6,6 @@ import LandHeader from "./_components/land-header";
 import TaskConsumer from "./_components/task-consumer";
 import TaskProducer from "./_components/task-producer";
 
-// import TaskConsumer from "./_components/task-consumer";
-// import TaskProducer from "./_components/task-producer";
-
 type Props = {
   params: { locale: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -30,7 +27,7 @@ interface pageProps {
   };
 }
 
-const HomePage = async ({ params: { locale } }: pageProps) => {
+const VideoGeneratorPage = async ({ params: { locale } }: pageProps) => {
   const { t } = await serverTranslation(locale);
 
   return (
@@ -44,11 +41,11 @@ const HomePage = async ({ params: { locale } }: pageProps) => {
           <TaskProducer />
         </div>
         <div className="relative flex-1">
-          <TaskConsumer className="absolute bottom-0 left-0 top-0 w-full overflow-scroll scroll-smooth"></TaskConsumer>
+          <TaskConsumer className="absolute bottom-0 left-0 top-0 w-full overflow-y-scroll scroll-smooth"></TaskConsumer>
         </div>
       </section>
     </div>
   );
 };
 
-export default HomePage;
+export default VideoGeneratorPage;

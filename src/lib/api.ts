@@ -10,7 +10,7 @@ import { langToCountry } from "./utils";
 
 // Create a ky instance for API requests with custom hooks
 const apiKy = ky.create({
-  prefixUrl: env.NEXT_PUBLIC_API_URL, // Base URL for the API
+  prefixUrl: env.NEXT_PUBLIC_FETCH_API_URL, // Base URL for the API
   timeout: 60000, // Timeout set to 60 seconds
   hooks: {
     beforeRequest: [

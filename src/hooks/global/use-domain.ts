@@ -8,7 +8,7 @@ export const useDomain = () => {
 
   const domain =
     region == "0"
-      ? env.NEXT_PUBLIC_OFFICIAL_WEBSITE_URL_CHINA
-      : env.NEXT_PUBLIC_OFFICIAL_WEBSITE_URL_GLOBAL;
+      ? env.NEXT_PUBLIC_CHINA_WEBSITE_URL
+      : env.NEXT_PUBLIC_GLOBAL_WEBSITE_URL;
   return domain;
 };

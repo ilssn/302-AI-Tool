@@ -56,7 +56,7 @@ const TaskItem = ({ className, ...props }: TaskItemProps) => {
             </div>
           </div>
         </CardTitle>
-        <CardDescription className="text-sm text-slate-400">
+        <CardDescription className="py-1 text-sm text-slate-400">
           Description prompt.
         </CardDescription>
       </CardHeader>

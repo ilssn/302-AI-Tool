@@ -27,8 +27,7 @@ interface LoginResult {
 }
 
 export const login = async (code?: string): Promise<LoginResult> => {
-  const hostname =
-    env.NEXT_PUBLIC_DEV_HOST_NAME || window.location.host.split(".")[0];
+  const hostname = window.location.host.split(".")[0];
 
   const res = await authKy.get(
     `bot/v1/${hostname}${code ? `?pwd=${code}` : ""}`
@@ -48,7 +47,7 @@ export const login = async (code?: string): Promise<LoginResult> => {
         code: code || "",
         info: data.data.info,
         apiKey: data.data.api_key,
-        modelName: data.data.model_name || env.NEXT_PUBLIC_DEFAULT_MODEL_NAME!,
+        modelName: data.data.model_name || env.NEXT_PUBLIC_DEFALT_MODEL_NAME!,
         region: data.data.region,
       },
     };
