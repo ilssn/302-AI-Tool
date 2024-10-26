@@ -1,9 +1,5 @@
-import Link from "next/link";
-import { useParams } from "next/navigation";
-
 import { Trans } from "react-i18next";
 
-import { env } from "@/env";
 import { useDomain } from "@/hooks/global";
 
 type TransRendererProps = {
@@ -17,7 +13,6 @@ const TransRenderer = ({
   content = "",
   website,
 }: TransRendererProps) => {
-  const { locale } = useParams();
   const defaultWebsite = useDomain();
   return (
     <Trans
@@ -31,14 +26,6 @@ const TransRenderer = ({
       components={{
         italic: <i />,
         bold: <strong />,
-        login: (
-          <Link
-            href={`/${locale}${env.NEXT_PUBLIC_AUTH_PATH}`}
-            className="!text-primary underline"
-            rel="noreferrer"
-            locale="fr"
-          />
-        ),
         site: (
           <a
             href={website || defaultWebsite}

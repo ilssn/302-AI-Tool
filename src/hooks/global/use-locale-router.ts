@@ -2,20 +2,11 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 import { useMemo } from "react";
 
 import { APP_CONSTANTS } from "@/constants";
-import { env } from "@/env";
-
-const authPath = env.NEXT_PUBLIC_AUTH_PATH;
 
 export const useLocaleRouter = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { locale } = useParams();
-
-  // check if auth page
-  const isAuthPage = useMemo(
-    () => pathname === `/${locale}${authPath}`,
-    [pathname, locale]
-  );
 
   // check if need auth router
   const isAuthRouter = useMemo(
@@ -51,7 +42,6 @@ export const useLocaleRouter = () => {
   };
 
   return {
-    isAuthPage,
     isAuthRouter,
     replaceLocale,
     replaceRouter,

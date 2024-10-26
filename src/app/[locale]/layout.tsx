@@ -22,7 +22,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 type Props = {
   params: { locale: string };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

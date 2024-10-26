@@ -50,21 +50,4 @@ const apiKy = ky.create({
   },
 });
 
-// Create a ky instance for authentication-related requests
-const authKy = ky.create({
-  prefixUrl: env.NEXT_PUBLIC_AUTH_API_URL, // Base URL for the authentication API
-  timeout: 60000, // Timeout set to 60 seconds
-  hooks: {
-    beforeRequest: [
-      (request) => {
-        // Get the language from the application state and set the header
-        const { language } = useAppSession.getState();
-        if (language) {
-          request.headers.set("Lang", langToCountry(language));
-        }
-      },
-    ],
-  },
-});
-
-export { apiKy, authKy };
+export { apiKy };
