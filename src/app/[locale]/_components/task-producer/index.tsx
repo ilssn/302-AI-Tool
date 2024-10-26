@@ -19,9 +19,12 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { useAppSession } from "@/stores";
+import { TaskType } from "@/stores/slices/task-slice";
 
 const TaskProducer = () => {
   const [isOpen, setIsOpen] = React.useState(true);
+  const clearTasksByType = useAppSession((state) => state.clearTasksByType);
 
   return (
     <Card className="w-full rounded-none">
@@ -49,6 +52,7 @@ const TaskProducer = () => {
         <Button
           variant="outline"
           className="hover:border-red-500 hover:text-red-500"
+          onClick={() => clearTasksByType(TaskType.VIDEO_GENERATION)}
         >
           清空任务
         </Button>

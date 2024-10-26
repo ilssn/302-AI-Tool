@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { FORM_CONSTANTS } from "@/constants";
 import { useClientTranslation } from "@/hooks/global";
 import { cn } from "@/lib/utils";
+import { useAppSession } from "@/stores";
+import { TaskType } from "@/stores/slices/task-slice";
 
 import { VideoSchema } from "./schema";
 
@@ -22,6 +24,7 @@ type DefaultVideoData = {
 };
 
 const VideoForm = () => {
+  const addTask = useAppSession((state) => state.addTask);
   const [showFields, setShowFields] = useState<string[]>([]);
   const { t } = useClientTranslation();
 
@@ -47,6 +50,7 @@ const VideoForm = () => {
       Object.entries(data).filter(([key]) => showFields.includes(key))
     );
     console.log("filteredData::", filteredData);
+    addTask(filteredData, TaskType.VIDEO_GENERATION);
     // Submit filteredData instead of data
   };
 
