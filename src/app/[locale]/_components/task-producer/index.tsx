@@ -45,13 +45,13 @@ const TaskProducer = () => {
         </CollapsibleContent>
       </Collapsible>
       <CardFooter className="flex justify-between">
+        <Button variant="outline">历史记录</Button>
         <Button
           variant="outline"
           className="hover:border-red-500 hover:text-red-500"
         >
           清空任务
         </Button>
-        <Button variant="outline">历史记录</Button>
       </CardFooter>
     </Card>
   );

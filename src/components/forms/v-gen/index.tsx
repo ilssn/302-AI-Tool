@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -7,6 +9,7 @@ import FormGenerator from "@/components/common/form-generator";
 import { Button } from "@/components/ui/button";
 import { FORM_CONSTANTS } from "@/constants";
 import { useClientTranslation } from "@/hooks/global";
+import { cn } from "@/lib/utils";
 
 import { VideoSchema } from "./schema";
 
@@ -19,17 +22,20 @@ type DefaultVideoData = {
 };
 
 const VideoForm = () => {
+  const [showFields, setShowFields] = useState<string[]>([]);
   const { t } = useClientTranslation();
+
   const {
     watch,
     register,
     handleSubmit,
+    getValues,
     setValue,
     formState: { errors },
   } = useForm<DefaultVideoData>({
     defaultValues: {
-      model: "", // Default code to empty string
-      prompt: "", // Default remember to true
+      model: "kling",
+      prompt: "",
       firstFrame: null,
       lastFrame: null,
     },
@@ -37,64 +43,52 @@ const VideoForm = () => {
   });
 
   const _onSubmit = (data: DefaultVideoData) => {
-    // event.preventDefault();
-    console.log("data::", data);
-    // onAuth();
+    const filteredData = Object.fromEntries(
+      Object.entries(data).filter(([key]) => showFields.includes(key))
+    );
+    console.log("filteredData::", filteredData);
+    // Submit filteredData instead of data
   };
 
-  // `watch` 可以用于监控字段的值
-  // const watchFields = watch(["model", "prompt", "firstFrame"]);
+  const modelValue = watch("model");
+  const firstFrame = watch("firstFrame");
+  const lastFrame = watch("lastFrame");
 
-  // React.useEffect(() => {
-  //   // 当监控的字段中的任何一个发生变化时，这个 useEffect 会被触发
-  //   console.log("model or prompt: ", watchFields);
-  // }, [watchFields]);
+  useEffect(() => {
+    // Dynamically update visible fields based on model value
+    switch (modelValue) {
+      case "kling":
+        if (firstFrame) {
+          setShowFields(["model", "firstFrame"]);
+        } else {
+          setShowFields(["model", "lastFrame"]);
+        }
+        break;
+      default:
+        setShowFields(["model", "prompt", "firstFrame", "lastFrame"]);
+        break;
+    }
+  }, [modelValue, firstFrame, lastFrame]);
 
   return (
     <form
       className="grid w-full items-center gap-4"
       onSubmit={handleSubmit(_onSubmit)}
     >
-      {FORM_CONSTANTS.videoForm.slice(0, 2).map((field) => (
+      {FORM_CONSTANTS.videoForm.map((field) => (
         <FormGenerator
           {...field}
           key={field.id}
           watch={watch}
           register={register}
+          getValues={getValues}
           setValue={setValue}
           errors={errors}
-          className="flex flex-col space-y-1.5"
+          className={cn("flex flex-col space-y-1.5", {
+            hidden: !showFields.includes(field.name),
+          })}
         />
       ))}
-      <div className="flex gap-4">
-        {FORM_CONSTANTS.videoForm
-          .filter((it) => it.type === "upload")
-          .map((field) => (
-            <FormGenerator
-              {...field}
-              key={field.id}
-              watch={watch}
-              register={register}
-              setValue={setValue}
-              errors={errors}
-              className="flex flex-1 flex-col space-y-1.5"
-            />
-          ))}
-      </div>
-      {FORM_CONSTANTS.videoForm
-        .slice(2)
-        .filter((it) => it.type !== "upload")
-        .map((field) => (
-          <FormGenerator
-            {...field}
-            key={field.id}
-            watch={watch}
-            register={register}
-            setValue={setValue}
-            errors={errors}
-            className="flex flex-col space-y-1.5"
-          />
-        ))}
       <Button type="submit">{t("v-gen:action.create_video")}</Button>
     </form>
   );

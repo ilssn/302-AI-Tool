@@ -12,6 +12,14 @@
     "prompt": {
       "title": "视频内容",
       "desc": "请输入您想要生成的视频内容"
+    },
+    "first_frame": {
+      "title": "视频首帧",
+      "desc": "拖入或点击上传图片"
+    },
+    "last_frame": {
+      "title": "视频尾帧",
+      "desc": "拖入或点击上传图片"
     }
   },
   "action": {

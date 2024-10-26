@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Image from "next/image";
 import React, { useCallback, useState } from "react";
 
 import { ErrorMessage } from "@hookform/error-message";
+import { UploadIcon } from "lucide-react";
 import {
   FieldErrors,
   FieldValues,
+  UseFormGetValues,
   UseFormRegister,
   UseFormSetValue,
 } from "react-hook-form";
+import { IoIosCloseCircle } from "react-icons/io";
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -36,6 +40,7 @@ type FormGeneratorProps = {
   className?: string;
   errors: FieldErrors<FieldValues>;
   register: UseFormRegister<any>;
+  getValues: UseFormGetValues<any>;
   setValue: UseFormSetValue<any>;
   watch: (name: string, defaultValue: any) => any;
 };
@@ -51,6 +56,7 @@ const FormGenerator = ({
   className,
   errors,
   register,
+  getValues,
   setValue,
   watch,
 }: FormGeneratorProps) => {
@@ -73,7 +79,7 @@ const FormGenerator = ({
     [name, setValue]
   );
 
-  const handleDragOver = (event: React.DragEvent<HTMLLabelElement>) => {
+  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setDragEnter(true);
   };
@@ -82,7 +88,7 @@ const FormGenerator = ({
     setDragEnter(false);
   };
 
-  const handleDrop = (event: React.DragEvent<HTMLLabelElement>) => {
+  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setDragEnter(false);
     if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
@@ -90,7 +96,7 @@ const FormGenerator = ({
     }
   };
 
-  const clearFile = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const clearFile = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setPreview(null);
     setValue(name, null);
@@ -137,7 +143,7 @@ const FormGenerator = ({
   );
 
   const renderSelect = () => {
-    const currentValue = watch(name, "");
+    const currentValue = watch(name, getValues(name));
     return (
       <Label htmlFor={`select-${name}`} className={className}>
         <p>{label && t(label)}</p>
@@ -184,39 +190,51 @@ const FormGenerator = ({
   };
 
   const renderUpload = () => (
-    <Label
-      htmlFor={`upload-${name}`}
-      className={cn(
-        "rounded-lg border border-2 border-dashed p-4 hover:border-primary",
-        className,
-        {
-          "border-gray-400": !dragEnter,
-          "border-blue-400": dragEnter,
-        }
-      )}
-      onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
-      onDrop={handleDrop}
-    >
+    <Label htmlFor={`upload-${name}`} className={className}>
       <p>{label && t(label)}</p>
-      <input
-        id={`upload-${name}`}
-        type="file"
-        accept="image/*"
-        onChange={(e) => e.target.files && handleFileDrop(e.target.files)}
-        className="hidden"
-      />
-      <p className="mt-2 text-center text-gray-500">
-        {t("Drag and drop an image here or click to upload")}
-      </p>
-      {preview && (
-        <div className="mt-4">
-          <img src={preview} alt="Preview" className="h-auto w-full" />
-          <button onClick={clearFile} className="mt-2 text-blue-500">
-            {t("Clear")}
-          </button>
+      {preview ? (
+        <div className="relative w-full rounded-md bg-background p-2">
+          <Image
+            width={100}
+            height={100}
+            src={preview}
+            alt="first image"
+            style={{ width: "100%", height: "auto" }}
+          ></Image>
+          <div
+            className="absolute right-0 top-0 hover:scale-110"
+            onClick={clearFile}
+          >
+            <IoIosCloseCircle className="cursor-pointer rounded-full bg-red-100 text-xl text-red-500" />
+          </div>
+        </div>
+      ) : (
+        <div
+          className={cn(
+            "rounded-lg border-2 border-dashed p-2 text-slate-500 hover:border-primary hover:text-primary",
+            {
+              "border-gray-400": !dragEnter,
+              "border-primary text-primary": dragEnter,
+            }
+          )}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
+          <div className="flex w-full flex-col items-center justify-center rounded-lg p-1">
+            <input
+              id={`upload-${name}`}
+              type="file"
+              accept="image/*"
+              onChange={(e) => e.target.files && handleFileDrop(e.target.files)}
+              className="hidden"
+            />
+            <UploadIcon />
+            <p className="mt-2 text-center">{placeholder && t(placeholder)}</p>
+          </div>
         </div>
       )}
+
       {renderErrorMessage()}
     </Label>
   );

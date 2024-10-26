@@ -45,15 +45,15 @@ export const VIDEO_FORM: VideoFormProps[] = [
   {
     id: 3,
     name: "firstFrame",
-    label: "v-gen:form.prompt.title",
-    placeholder: "v-gen:form.prompt.desc",
+    label: "v-gen:form.first_frame.title",
+    placeholder: "v-gen:form.first_frame.desc",
     type: "upload",
   },
   {
     id: 4,
     name: "lastFrame",
-    label: "v-gen:form.prompt.title",
-    placeholder: "v-gen:form.prompt.desc",
+    label: "v-gen:form.last_frame.title",
+    placeholder: "v-gen:form.last_frame.desc",
     type: "upload",
   },
   {
