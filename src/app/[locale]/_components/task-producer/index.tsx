@@ -4,6 +4,7 @@ import * as React from "react";
 
 import { CaretSortIcon } from "@radix-ui/react-icons";
 
+import VideoForm from "@/components/forms/v-gen";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -18,15 +19,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 
 const TaskProducer = () => {
   const [isOpen, setIsOpen] = React.useState(true);
@@ -48,38 +40,19 @@ const TaskProducer = () => {
         </CardHeader>
         <CollapsibleContent>
           <CardContent>
-            <form>
-              <div className="grid w-full items-center gap-4">
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="video-model">视频模型</Label>
-                  <Select>
-                    <SelectTrigger id="video-model">
-                      <SelectValue placeholder="选择模型" />
-                    </SelectTrigger>
-                    <SelectContent position="popper">
-                      <SelectItem value="luma">Luma</SelectItem>
-                      <SelectItem value="kling">Kling</SelectItem>
-                      <SelectItem value="runway">Runway</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="video-prompt">视频内容</Label>
-                  <Textarea
-                    id="video-prompt"
-                    rows={3}
-                    placeholder="请输入您想要生成的视频内容"
-                  />
-                </div>
-              </div>
-            </form>
+            <VideoForm />
           </CardContent>
-          <CardFooter className="flex justify-between">
-            <Button variant="outline">历史记录</Button>
-            <Button>生成视频</Button>
-          </CardFooter>
         </CollapsibleContent>
       </Collapsible>
+      <CardFooter className="flex justify-between">
+        <Button
+          variant="outline"
+          className="hover:border-red-500 hover:text-red-500"
+        >
+          清空任务
+        </Button>
+        <Button variant="outline">历史记录</Button>
+      </CardFooter>
     </Card>
   );
 };

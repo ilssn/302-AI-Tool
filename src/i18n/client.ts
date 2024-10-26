@@ -24,6 +24,10 @@ import { UseTranslationOptions } from "./";
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
+/* eslint-disable react-hooks/rules-of-hooks */
+
+/* eslint-disable react-hooks/rules-of-hooks */
+
 export const cookieName = "i18next";
 
 const runsOnServerSide = typeof window === "undefined";

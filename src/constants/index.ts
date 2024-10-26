@@ -1,4 +1,4 @@
-import { AuthFormProps, SIGN_IN_FORM } from "./forms";
+import { VIDEO_FORM, VideoFormProps } from "./forms";
 import { APP_ROUTE_MENU, MenuProps } from "./menus";
 import { APP_THEME_OPTION, OptionProps } from "./options";
 
@@ -15,11 +15,9 @@ export const APP_CONSTANTS: AppConstantsProps = {
 
 // Form
 type FormConstantsProps = {
-  signInForm: AuthFormProps[];
+  videoForm: VideoFormProps[];
 };
 
 export const FORM_CONSTANTS: FormConstantsProps = {
-  signInForm: SIGN_IN_FORM,
+  videoForm: VIDEO_FORM,
 };
-
-// Land

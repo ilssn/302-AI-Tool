@@ -1,7 +1,21 @@
 {
   "title": "AI视频生成器",
   "desc": "使用AI快速生成各种定制视频",
-  "form": "",
-  "action": "",
+  "form": {
+    "model": {
+      "title": "视频模型",
+      "desc": "选择模型",
+      "luma": "Luma",
+      "kling": "Kling",
+      "runway": "Runway"
+    },
+    "prompt": {
+      "title": "视频内容",
+      "desc": "请输入您想要生成的视频内容"
+    }
+  },
+  "action": {
+    "create_video": "生成视频"
+  },
   "example": ""
 }
