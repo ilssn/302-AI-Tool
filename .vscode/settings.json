@@ -1,0 +1,21 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "compile-hero.disable-compile-files-on-did-save-code": true,
+  "i18n-ally.localesPaths": ["src/i18n/locales"],
+  "i18n-ally.sourceLanguage": "zh", // 根据此语言文件翻译
+  "i18n-ally.displayLanguage": "zh", // 编辑器默认显示语言
+  "i18n-ally.keystyle": "nested", // 翻译后变量格式
+  "i18n-ally.preferredDelimiter": "_", // 翻译后变量分隔符
+  "i18n-ally.sortKeys": true, // 翻译后变量排序
+  "i18n-ally.namespace": true, // 翻译后命名空间
+  "i18n-ally.enabledParsers": ["json"], // 支持的翻译文件类型（json文件支持写入，js文件只有读取的权限）
+  "i18n-ally.extract.autoDetect": false // 自动检测翻译文件
+}

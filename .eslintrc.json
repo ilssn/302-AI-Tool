@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": ["tailwindcss", "check-file", "n"],
+  "rules": {
+    "prefer-arrow-callback": ["error"],
+    "prefer-template": ["error"],
+    // "semi": [
+    //   "error"
+    // ],
+    "quotes": ["error", "double"],
+    // "n/no-process-env": ["error"],
+    "tailwindcss/enforces-shorthand": "off",
+    "@typescript-eslint/no-empty-object-type": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "n/no-process-env": "off",
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "**/*.{ts,tsx}": "KEBAB_CASE"
+      },
+      {
+        "ignoreMiddleExtensions": true
+      }
+    ],
+    "check-file/folder-naming-convention": [
+      "error",
+      {
+        "src/**/!^[.*": "KEBAB_CASE"
+      }
+    ]
+  }
+}

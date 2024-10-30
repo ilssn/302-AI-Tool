@@ -1,0 +1,41 @@
+{
+  "symbol": "ja",
+  "lang": "日本語",
+  "title": "302.AI",
+  "desc": "あなた自身のAIツールを作成する",
+  "theme": {
+    "light": "日中",
+    "dark": "夜間",
+    "system": "システム"
+  },
+  "system": {
+    "login": "<login>ログイン</login>",
+    "logout": "ログアウト",
+    "notifi": "システム通知",
+    "error": "システムエラー"
+  },
+  "about": {
+    "title": "説明",
+    "desc": "AIツールの詳細プレビュー"
+  },
+  "footer": {
+    "title": "提供元",
+    "desc": "内容はAIによって生成され、参考のみとなります"
+  },
+  "history": {
+    "title": "履歴",
+    "desc": "すべての履歴はローカルに保存され、送信されません",
+    "total": "合計 {{count}} 件の履歴",
+    "empty": "記録がありません",
+    "delete": "削除",
+    "clear": "クリア"
+  },
+  "error": {
+    "not_found": "ページが見つかりません",
+    "unknown_error": "不明なエラーが発生しました。サポートに連絡してください。",
+    "network_error": "ネットワークサービスエラーです。ネットワークの状態を確認するか、後でもう一度お試しください！",
+    "code_invalid": "共有コードが無効です。詳細は<site>302.AI</site>をご覧ください",
+    "tool_disabled": "このツールは無効化されています。詳細は<site>302.AI</site>をご覧ください",
+    "tool_deleted": "このツールは削除されました。詳細は<site>302.AI</site>をご覧ください"
+  }
+}

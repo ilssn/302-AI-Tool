@@ -1,0 +1,41 @@
+{
+  "symbol": "zh",
+  "lang": "中文",
+  "title": "302.AI",
+  "desc": "创建属于你自己的AI工具",
+  "theme": {
+    "light": "日间",
+    "dark": "夜间",
+    "system": "系统"
+  },
+  "system": {
+    "login": "<login>登录</login>",
+    "logout": "退出登录",
+    "notifi": "系统通知",
+    "error": "系统错误"
+  },
+  "about": {
+    "title": "说明",
+    "desc": "AI工具详情预览"
+  },
+  "footer": {
+    "title": "Powered By",
+    "desc": "内容由AI生成, 仅供参考"
+  },
+  "history": {
+    "title": "历史记录",
+    "desc": "所有历史记录均保存在本地，不会会上传",
+    "total": "共 {{count}} 条历史记录",
+    "empty": "暂无记录",
+    "delete": "删除",
+    "clear": "清空"
+  },
+  "error": {
+    "not_found": "页面不存在",
+    "unknown_error": "发生未知错误, 请联系客服",
+    "network_error": "网络服务错误, 请查看网络状态或稍后再试!",
+    "code_invalid": "分享码错误, 更多请访问 <site>302.AI</site>",
+    "tool_disabled": "该工具已禁用, 更多请访问 <site>302.AI</site>",
+    "tool_deleted": "该工具已删除, 更多请访问 <site>302.AI</site>"
+  }
+}
